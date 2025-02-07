@@ -1,0 +1,9 @@
+n=input()
+k=n[::-1]
+s=0
+while n!=k:
+    n=int(n)+int(k)
+    n=str(n)
+    k=n[::-1]
+    s=s+1
+print(s)
