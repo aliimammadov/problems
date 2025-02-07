@@ -1,0 +1,25 @@
+class Solution:
+    def trap(self, height: List[int]) -> int:
+        maxsag=[]
+        maxsagelement=float('-inf')
+        for i in height:
+            maxsag.append(maxsagelement)
+            maxsagelement = max(maxsagelement, i)
+        ters=height[::-1]
+        maxsol=[]
+        maxsolelement=float('-inf')
+        for i in ters:
+            maxsol.append(maxsolelement)
+            maxsolelement = max(maxsolelement, i)
+        maxsol=maxsol[::-1]
+        minumumlar=[]
+        for i in range(len(height)):
+            minumumlar.append(min(maxsol[i],maxsag[i]))
+        cam=0
+        for i in range(len(minumumlar)):
+            reqem=minumumlar[i]-height[i]
+            if reqem>0:
+                cam+=reqem
+        return cam
+
+            
