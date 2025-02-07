@@ -1,0 +1,22 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int n;
+    cin>>n;
+    int massiv[n];
+    int k=0;
+    for(int i=0;i<n;i++){
+        cin>>massiv[i];
+    }
+    for(int i=0;i<n;i++){
+        for(int j=0;j<n;j++){
+            if(massiv[i]%massiv[j]==0){
+                k++;
+            }
+    }
+    if(k==1) cout<< massiv[i]<<" ";
+    k=0;
+    }
+    
+}
