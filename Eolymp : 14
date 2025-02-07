@@ -1,0 +1,12 @@
+def sade(x):
+    for i in range(3,x):
+        if x%i==0:
+            return False
+    return True
+adam,bilet=map(int,input().split())
+buraxajax=-1
+for i in range(1,adam):
+    if sade(bilet+i)==True:
+        buraxajax=i-1
+        break
+print(buraxajax)
