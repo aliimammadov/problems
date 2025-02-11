@@ -1,0 +1,10 @@
+class Solution:
+    def maxProfit(self, prices: List[int]) -> int:
+        alis=prices[0]
+        gelir = 0
+        for i in prices[1:]:
+            if alis>i:
+                alis=i
+            gelir=max(gelir, i-alis)
+    
+        return gelir
