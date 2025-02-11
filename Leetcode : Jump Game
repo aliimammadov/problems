@@ -1,0 +1,10 @@
+class Solution:
+    def canJump(self, nums: List[int]) -> bool:
+        addim = 0
+        for i in nums:
+            if addim < 0:
+                return False
+            elif i > addim:
+                addim=i
+            addim-=1
+        return True
