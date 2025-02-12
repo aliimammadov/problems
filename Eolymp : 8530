@@ -1,0 +1,9 @@
+n=int(input())
+lists=[]
+for i in range(n):
+    lists.append(list(map(int,input().split())))
+a,b=map(int,input().split())
+for i in range(a):
+    for j in range(b):
+        print(lists[i][j],end=" ")
+    print("\n")
