@@ -1,0 +1,19 @@
+#include <iostream>
+using namespace std;
+long long factorial(long long x) {
+    long long result = 1;
+    for (long long i = 1; i <= x; ++i) {
+        result *= i;
+    }
+    return result;
+}
+long long combination(long long n, long long k) {
+    if (k > n) return 0;
+    return factorial(n) / (factorial(k) * factorial(n - k));
+}
+int main() {
+    long long n, k;
+    cin >> n >> k;
+    cout << combination(n, k) << endl;
+    return 0;
+}
