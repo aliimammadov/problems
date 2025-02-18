@@ -1,0 +1,4 @@
+fib = [1, 1]
+n=int(input())
+[fib.append(fib[-1] + fib[-2]) for i in range(n - 2)]
+print(fib[n-1])
