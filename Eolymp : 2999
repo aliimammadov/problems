@@ -1,0 +1,22 @@
+#include <iostream>
+using namespace std;
+int calculate(int m, int n) {
+    int pascal[n + 1][n + 1];
+    for (int i = 0; i <= n; i++) {
+        for (int j = 0; j <= i; j++) {
+            if (j == 0 || j == i) {
+                pascal[i][j] = 1;
+            } else {
+                pascal[i][j] = pascal[i - 1][j - 1] + pascal[i - 1][j];
+            }
+        }
+    }
+    return pascal[n][m];
+}
+
+int main() {
+    int n, m;
+    cin >> n >> m;
+    cout << calculate(m, n) << endl;
+    return 0;
+}
