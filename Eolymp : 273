@@ -1,0 +1,18 @@
+#include <iostream>
+using namespace std;
+long long powerMod(long long x, long long n, long long m) {
+    if (n == 0)
+        return 1;
+    long long half = powerMod(x, n / 2, m);
+    half = (half * half) % m;
+    if (n % 2 != 0)
+        half = (half * x) % m;
+    return half;
+}
+
+int main() {
+    long long x, n, m;
+    cin >> x >> n >> m;
+    cout << powerMod(x, n, m) << endl;
+    return 0;
+}
