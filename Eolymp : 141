@@ -1,0 +1,9 @@
+a,b=map(int,input().split())
+f=[]
+for i in range(a,b+1):
+    d=0
+    i=str(i)
+    for j in i:
+        d+=int(j)
+    f.append(d)
+print(f.count(min(f)))
