@@ -1,0 +1,21 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    long long n;
+    while (cin >> n) {
+        int q = 0;
+        while (n >= 10) {
+            long long product = 1;
+            long long temp = n;
+            while (temp > 0) {
+                product *= (temp % 10);
+                temp /= 10;
+            }
+            n = product;
+            q++;
+        }
+        cout << q << endl;
+    }
+    return 0;
+}
