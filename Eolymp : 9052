@@ -1,0 +1,12 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    long long n,m,a,b;
+    cin>>n>>m>>a>>b;
+    a=min(a,m*b);
+    long long full = n/m;
+    long long qaliq = n%m;
+    long long vaxt = full * a + min(a,qaliq*b)+n;
+    cout<<vaxt;
+}
