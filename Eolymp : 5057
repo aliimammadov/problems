@@ -1,0 +1,31 @@
+n=int(input())
+# 4 if 4 hereket ucun
+massiv=[[0]*n for i in range(n)]
+eded=1
+yuxari, asagi, sol, sag = 0, n-1, 0, n-1
+
+while yuxari <= asagi and sol <= sag:
+    #saga hereket ucun if
+    for i in range(sol,sag+1):
+        massiv[yuxari][i]=eded
+        eded+=1
+    yuxari+=1
+    #sagin asagisina ya Allah
+    for i in range(yuxari, asagi+1):
+        massiv[i][sag] = eded
+        eded+=1
+    sag-=1
+    #asaginin soluna
+    if yuxari <= asagi:
+        for i in range(sag, sol-1, -1):
+            massiv[asagi][i] = eded
+            eded+=1
+        asagi-=1
+    #solun yuxarisina
+    if sol <= sag:
+        for i in range(asagi, yuxari-1,-1):
+            massiv[i][sol]=eded
+            eded+=1
+        sol+=1
+for i in massiv:
+    print(*i)
