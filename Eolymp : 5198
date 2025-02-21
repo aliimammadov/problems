@@ -1,0 +1,17 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    long long a,b,c,t=1;
+    scanf("%lld%lld%lld", &a,&b,&c);
+    while(b!=0)
+    {
+        if (b%2==1)
+        {
+            t=((t%c)*(a%c))%c;
+        }
+        a=((a%c)*(a%c))%c;
+        b=b>>1;
+    }
+    printf("%lld",t);
+}
