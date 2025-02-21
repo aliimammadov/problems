@@ -1,0 +1,44 @@
+n = int(input())
+dolan1, dolan2, dolan3, dolan4 =  0, 0, n, n
+mot=0
+m=1
+addim=0
+if n==3:
+    print("111")
+    print("001")
+    print("111")
+else:
+    matris = [[0] * n for _ in range(n)]
+    while mot <(n//2)-1:
+        if n%4==3 and addim==n-1:
+            break
+        for i in range(dolan2-1, dolan4):
+            matris[dolan1][i] = m
+            addim+=1
+        dolan1 +=2
+        if n%4==3 and addim==n-1:
+            break
+        for i in range(dolan1-1, dolan3):
+            matris[i][dolan4 - 1] = m
+            addim+=1
+        dolan4 -= 2 
+        if n%4==3 and addim==n-1:
+            break
+        for i in range(dolan4 , dolan2 - 1, -1):
+            matris[dolan3 - 1][i] = m
+            addim+=1
+        dolan3 -= 2  
+        if n%4==3 and addim==n-1:
+            break
+        for i in range(dolan3 , dolan1 - 1, -1):
+            
+            matris[i][dolan2] = m
+            addim+=1
+        dolan2 += 2 
+        if n%4==3 and addim==n-1:
+            break
+        mot+=1
+    for j in range(n):
+        for l in range(n):
+            print(matris[j][l],end="")
+        print()
