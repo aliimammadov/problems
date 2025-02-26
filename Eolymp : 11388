@@ -1,0 +1,32 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    long long n;
+    cin >> n;
+    vector<long long> numbers(n);
+    vector<long long> nnumbers(0);
+    long long left = 0, right = n - 1;
+    bool flag = true;
+    for (int i = 0; i < n; ++i) {
+        cin >> numbers[i];
+    }
+    while (left<=right)
+    {
+        if (flag==true)
+        {
+            nnumbers.push_back(numbers[left]);
+            left++;
+        }
+        else
+        {
+            nnumbers.push_back(numbers[right]);
+            right--;
+        }
+        flag = !flag;
+    }
+    for (int i: nnumbers)
+    {
+        cout<<i<<" ";
+    }
+}
