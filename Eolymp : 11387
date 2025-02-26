@@ -1,0 +1,32 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    long long n, huseyn = 0, yaroslav = 0;
+    cin >> n;
+    vector<long long> numbers(n);
+    long long left = 0, right = n - 1;
+    bool flag = true;
+    for (int i = 0; i < n; ++i) {
+        cin >> numbers[i];
+    }
+    while (left <= right) {
+        if (numbers[left] > numbers[right]) {
+            if (flag) {
+                huseyn += numbers[left];
+            } else {
+                yaroslav += numbers[left];
+            }
+            left++;
+        } else {
+            if (flag) {
+                huseyn += numbers[right];
+            } else {
+                yaroslav += numbers[right];
+            }
+            right--;
+        }
+        flag = !flag;
+    }
+    cout << huseyn << " " << yaroslav << endl;
+}
