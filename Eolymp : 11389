@@ -1,0 +1,22 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int main() {
+    string s;
+    cin >> s; 
+    
+    int n = s.length();
+    int left = 0, right = n - 1;
+    while (left <= right) {
+        if ((s[left] == '1' && s[right] == '0') || (s[left] == '0' && s[right] == '1')) {
+            left++;
+            right--;
+        } else {
+            break;
+        }
+    }
+    int uzunluq = right - left + 1;
+    cout << uzunluq << endl;
+}
