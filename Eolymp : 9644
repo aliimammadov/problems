@@ -1,0 +1,32 @@
+#include <bits/stdc++.h>
+using namespace std;
+long long power(long long a, long long b, long long c)
+{
+    long long t=1;
+    while (b!=0)
+    {
+        if (b%2==1)
+        {
+            t=((t%c)*(a%c))%c;
+        }
+        a=((a%c)*(a%c))%c;
+        b=b>>1;
+    }
+    return t;
+}
+
+long long yoxla(long long d, long long a, long long b, long long c) {
+    long long result = power(a, b, c);
+    return (d%c * result) % c;
+}
+
+int main() {
+    long long n,m,cam=0;
+    cin>>n>>m;
+    cam+=(power(1,n,m)+ power(2,n,m))%m;
+    for (int i=2; i<100; i++)
+    {
+        cam+=yoxla(i,i+1,n,m);
+    }
+    cout<<cam%m;
+}
