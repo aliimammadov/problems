@@ -2,9 +2,6 @@
 using namespace std;
 
 int main() {
-    ios::sync_with_stdio(false);
-    cin.tie(nullptr);
-
     int n;
     long long x;
     cin >> n >> x;
@@ -19,22 +16,20 @@ int main() {
     }
     sort(v.begin(), v.end());
     for (int i = 0; i < n; i++) {
-        long long need = x - v[i].first;
-        int left = i + 1, right = n - 1;
+        long long lazim = x - v[i].first;
+        int sol = i + 1, sag = n - 1;
 
-        while (left < right) {
-            long long currentSum = v[left].first + v[right].first;
-            if (currentSum == need) {
-                cout << v[i].first << " "
-                     << v[left].first << " "
-                     << v[right].first << "\n";
+        while (sol < sag) {
+            long long cem = v[sol].first + v[sag].first;
+            if (cem == lazim) {
+                cout << v[i].first << " "<< v[sol].first << " "<< v[sag].first << "\n";
                 return 0;
             }
-            else if (currentSum < need) {
-                left++;
+            else if (cem < lazim) {
+                sol++;
             }
             else {
-                right--;
+                sag--;
             }
         }
     }
