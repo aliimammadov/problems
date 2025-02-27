@@ -1,0 +1,30 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+
+    int n;
+    cin >> n;
+    vector<long long> A(n);
+    for(int i = 0; i < n; i++){
+        cin >> A[i];
+    }
+    vector<long long> ans(n);
+    for(int i = 0; i < n; i++){
+        long long L = A[i];
+        long long R = 2LL * A[i]; 
+        auto it = upper_bound(A.begin(), A.end(), R);
+        int j = int(it - A.begin()) - 1;
+        long long countInRange = 0;
+        if(j >= i) {
+            countInRange = j - i + 1;
+        }
+        ans[i] = countInRange;
+    }
+    for(int i = 0; i < n; i++){
+        cout << ans[i] << (i + 1 < n ? ' ' : '\n');
+    }
+    return 0;
+}
