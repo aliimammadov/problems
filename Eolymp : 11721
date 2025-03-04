@@ -1,0 +1,32 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+long long count_subarrays_with_sum(long long n, long long x, const vector<long long>& arr) {
+    long long count = 0;
+    long long current_sum = 0;
+    long long start = 0;
+
+    for (long long end = 0; end < n; ++end) {
+        current_sum += arr[end];
+        while (current_sum > x && start <= end) {
+            current_sum -= arr[start];  
+            start++;
+        }
+        if (current_sum == x) {
+            count++;
+        }
+    }
+
+    return count;
+}
+
+int main() {
+    long long n, x;
+    cin >> n >> x;
+    vector<long long> arr(n);
+    for (long long i = 0; i < n; ++i) {
+        cin >> arr[i];
+    }
+    cout << count_subarrays_with_sum(n, x, arr) << endl;
+}
