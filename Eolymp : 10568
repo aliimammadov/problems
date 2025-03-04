@@ -1,0 +1,15 @@
+def max_diamonds(n, k, sizes):
+    sizes.sort()
+    left = 0
+    right = 0
+    max_diamonds = 0
+    while right < n:
+        if sizes[right] - sizes[left] <= k:
+            max_diamonds = max(max_diamonds, right - left + 1)
+            right += 1
+        else:
+            left += 1
+    return max_diamonds
+n, k = map(int, input().split())
+sizes = [int(input()) for _ in range(n)]  
+print(max_diamonds(n, k, sizes))
