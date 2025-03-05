@@ -1,0 +1,18 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    long long n,maxx=0,vol=0;
+    cin>>n;
+    long long left=0, right=n-1;
+    vector<long long> h(n);
+    for (long long i; i<=n; i++){cin>>h[i];}
+    while (left<right)
+    {
+        vol=min(h[left],h[right])*(right-left);
+        if (h[left]<h[right]){left++;}
+        else {right--;}
+        maxx=max(vol,maxx);
+    }
+    cout<<maxx;
+}
