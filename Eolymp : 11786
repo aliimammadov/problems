@@ -1,0 +1,11 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    long long n,k,x;
+    scanf("%lld%lld",&n,&k);
+    deque <long long> v;
+    for(long long i=0; i<n; i++){cin>>x; v.push_back(x);}
+    for (long long i=0; i<k; i++){v.push_back(v.front()+v.back());v.pop_front();}
+    for (auto x: v){cout<<x<<" ";}
+}
