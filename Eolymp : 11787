@@ -1,0 +1,11 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    long long n,x;
+    cin>>n;
+    deque <long long> b;
+    if(n%2==0){for (long long i=0; i<n; i++){cin>>x;if(i%2==1){b.push_front(x);}else{b.push_back(x);}}}
+    else{for (long long i=0; i<n; i++){cin>>x;if(i%2==0){b.push_front(x);}else{b.push_back(x);}}}
+    for (long long x: b){cout<<x<<" ";}
+}
